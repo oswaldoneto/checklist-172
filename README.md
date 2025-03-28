@@ -19,12 +19,13 @@ An interactive checklist web application for the Cessna 172S with G1000 avionics
 Before you begin, ensure you have the following installed:
 - [Node.js](https://nodejs.org/) (v18.0.0 or higher)
 - npm (usually comes with Node.js)
+- Conta no Firebase
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/checklist-172.git
+git clone https://github.com/oswaldoneto/checklist-172.git
 ```
 
 2. Navigate to the project directory:
@@ -37,14 +38,12 @@ cd checklist-172
 npm install
 ```
 
-## Development
-
-To run the development server:
+4. Start the development server:
 ```bash
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`
+The application will be available at `http://localhost:3000`
 
 ## Building for Production
 
@@ -58,23 +57,35 @@ npm run build
 npm run preview
 ```
 
-## Deployment
+## Deploying to Firebase
 
-The project is built using Vite and can be deployed to various platforms:
+1. Install the Firebase CLI globally:
+```bash
+npm install -g firebase-tools
+```
 
-### Static Hosting (Recommended)
-After running `npm run build`, deploy the contents of the `dist` folder to any static hosting service like:
-- GitHub Pages
-- Netlify
-- Vercel
-- Firebase Hosting
+2. Login to Firebase:
+```bash
+firebase login
+```
 
-### Example: Deploying to GitHub Pages
+3. Initialize the Firebase project (for the first time):
+```bash
+firebase init hosting
+```
+- Select the Firebase project
+- Use `dist` as the public directory
+- Configure as a single-page application (SPA)
+- Do not overwrite the existing index.html
 
-1. Create a new repository on GitHub
-2. Push your code to the repository
-3. Enable GitHub Pages in your repository settings
-4. Set the build directory as the source
+4. Deploy:
+```bash
+firebase deploy
+```
+
+The application will be available at:
+- https://checklist-172.web.app
+- https://checklist-172.firebaseapp.com
 
 ## Project Structure
 
@@ -122,4 +133,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For support, please visit:
 - YouTube Channel: [@simmerlabs](https://www.youtube.com/@simmerlabs)
-- GitHub Issues: [Project Issues](https://github.com/yourusername/checklist-172/issues)
+- GitHub Issues: [Project Issues](https://github.com/oswaldoneto/checklist-172/issues)
+
+## Acknowledgments
+
+- Pilots and instructors who contributed feedback
+- Vue.js community
+- Cessna 172-S G1000 pilots
