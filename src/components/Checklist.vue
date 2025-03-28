@@ -36,6 +36,7 @@
     <div class="credits">
       <p>Credits: <a href="https://www.youtube.com/@simmerlabs" target="_blank">@simmerlabs</a></p>
     </div>
+
   </div>
 </template>
 
@@ -55,7 +56,13 @@ const resetChecklist = () => {
 }
 
 const togglePhase = (phaseKey) => {
-  activePhase.value = phaseKey
+  if (activePhase.value === phaseKey) {
+    // Se clicar na mesma fase que está aberta, fecha ela
+    activePhase.value = null
+  } else {
+    // Caso contrário, abre a fase clicada
+    activePhase.value = phaseKey
+  }
 }
 
 const formatItemName = (text) => {
